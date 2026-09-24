@@ -6,6 +6,8 @@ services:
     buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
     startCommand: npm start --prefix server
     envVars:
+      - key: NODE_VERSION
+        value: 22.23.2
       - key: DATA_DIR
         value: /data
       - key: SESSION_SECRET
