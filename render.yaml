@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: tech-reviews
+    runtime: node
+    plan: starter
+    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
+    startCommand: npm start --prefix server
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
