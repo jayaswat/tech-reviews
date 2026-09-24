@@ -3,7 +3,7 @@ services:
     name: tech-reviews
     runtime: node
     plan: starter
-    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
+    buildCommand: npm install --prefix server && npm rebuild better-sqlite3 --prefix server && npm install --prefix client && npm run build --prefix client
     startCommand: npm start --prefix server
     envVars:
       - key: NODE_VERSION
